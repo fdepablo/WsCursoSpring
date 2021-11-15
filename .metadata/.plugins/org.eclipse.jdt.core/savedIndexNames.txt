@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/angular2/Desktop/WsCursoSpring/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+2906833798.index
+3905711396.index

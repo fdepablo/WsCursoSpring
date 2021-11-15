@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/usr/local/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_16.0.2.v20210721-1149" version="16.0.2"/>
+    <libraryInfo home="/usr/local/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_16.0.2.v20210721-1149/jre" version="16.0.2"/>
+    <libraryInfo home="/lib/jvm/java-11-openjdk" version="11.0.13"/>
+</libraryInfos>
