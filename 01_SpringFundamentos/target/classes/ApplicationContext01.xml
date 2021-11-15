@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Para dar de alta un contexto de spring por XML, usaremos un fichero 
+		de este tipo, y lo llamaremos desde la app. 
+		
+		Dentro de este fichero podremos dar de alta todos los beans que queramos dentro de 
+		nuestro contexto de Spring. 
+		
+		En este ejemplo solo vamos a tener un bean creado a partir de la clase ejemplo01.Mensaje. 
+		Para dar de alta un bean en el contexto de spring usaremos la etiqueta "bean" 
+		y tendrá que tener al menos un identificador del bean "id", y la class que 
+		tiene que usar Spring para instanciar el objeto De manera basica, debemos 
+		de tener en la clase el constructor sin parametros 
+		
+		El ciclo de vida de los beans en Spring es por defecto de tipo "Singleton" que 
+		se traduce en que el objeto sera unico para toda la duracion del contexto de spring. 
+		
+		Hablaremos de otros ciclos de vida más adelante -->
+		
+		
+	<bean id="mensaje1" class="es.curso.spring01.Mensaje"></bean>
+	
+	<!-- No puede haber dos beans en el contexto de spring con el mismo id, daria error al arrancar 
+	
+		Podemos usar las propiedades del objeto dentro del contexto para inicializarlo con otros valores
+		
+	-->
+	<bean id="mensajeRelleno" class="es.curso.spring01.Mensaje">
+		<property name="destinatario" value="Peter Parker"></property>
+		<property name="cuerpo" value="Vamonos al cine!"></property>
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Hay dos alcances o scopes principales en spring:
+		1. Singleton, la instancia del objeto sera unica y su ciclo de vida será mientras
+		el contexto de spring este funcionando (todo la app). Scope por defecto
+		2. Prototype, cada vez que pidamos este objeto al contexto de spring, spring
+		nos devolvera una instancia nueva a imagen del objeto del contexto de spring
+	 -->
+
+
+	<bean id="persona1" class="es.curso.spring02.Persona" scope="singleton">
+		<property name="nombre" value="Bud Spencer"></property>
+	</bean>
+	
+	<bean id="personaPrototype" class="es.curso.spring02.Persona" scope="prototype">
+		<property name="nombre" value="Terence Hill"></property>
+	</bean>
+	
+	<bean id="listaPersonas" class="java.util.ArrayList"/>
+	
+</beans>
