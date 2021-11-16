@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Si no decimos nada, spring buscara el constructor sin parametros para
+	dar de alta un objeto -->
+	<bean id="persona1" class="es.curso.spring04.Persona">
+		<property name="nombre" value="Obelix"></property>
+	</bean>
+	
+	<!-- Si no tenemos el construcor por defecto o queremos utilizar otro hay que decrlo
+	explicitamente 
+	Para ello utilizaremos la etiqueta construtor-arg, que tiene 2 parametros importantes:
+		1. index -> la posicion del argumento de entrada que vamos a inyectar
+	-->
+	<bean id="persona2" class="es.curso.spring04.Persona">
+		<constructor-arg index="0" value="Asterix"></constructor-arg>
+		<constructor-arg index="1" value="35"></constructor-arg>
+		<constructor-arg index="2" value="45.7"></constructor-arg>
+	</bean>
+	
+	<!-- Podriamos  tambien inyectar dependecias de objetos por constructor tanto
+	por inner bean como por referencia -->
+	<bean id="persona3" class="es.curso.spring04.Persona">
+		<constructor-arg index="0" value="Panoramix"></constructor-arg>
+		<constructor-arg index="1" value="67"></constructor-arg>
+		<constructor-arg index="2" value="85"></constructor-arg>
+		<constructor-arg index="3">
+			<bean class="es.curso.spring04.Direccion">
+				<property name="tipoVia" value="Pueblo"></property>
+				<property name="nombreVia" value="Donde los romanos no llegan"></property>
+				<property name="ciudad" value="Francia"></property>
+				<property name="cp" value="28090"></property>
+			</bean>
+		</constructor-arg>		
+	</bean>
+	
+	<bean id="persona4" class="es.curso.spring04.Persona">
+		<constructor-arg index="0" value="Abraracurcix"></constructor-arg>
+		<constructor-arg index="1" value="57"></constructor-arg>
+		<constructor-arg index="2" value="105"></constructor-arg>
+		<constructor-arg index="3" ref="direccion1"></constructor-arg>
+	</bean>
+	
+	<bean id="direccion1" class="es.curso.spring04.Direccion">
+		<property name="tipoVia" value="Pueblo"></property>
+		<property name="nombreVia" value="A la orilla del mar"></property>
+		<property name="ciudad" value="Francia"></property>
+		<property name="cp" value="28076"></property>
+	</bean>
+</beans>

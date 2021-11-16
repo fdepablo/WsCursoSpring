@@ -14,6 +14,22 @@ public class MainSpring03 {
 
 		Persona p1 = contexto.getBean("mortadelo", Persona.class);
 		System.out.println(p1);
+		
+		p1 = contexto.getBean("filemon", Persona.class);
+		System.out.println(p1);
+		
+		Persona p2 = contexto.getBean("persona", Persona.class);
+		p2.setNombre("Vicente");
+		p2.getDireccion().setCiudad("Barcelona");
+		
+		System.out.println(p2);
+		
+		Persona p3 = new Persona();
+		p3.setDireccion(new Direccion());
+		p3.setNombre("Ofelia");
+		p3.getDireccion().setCiudad("Sevilla");
+		
+		System.out.println(p3);
 	}
 
 }

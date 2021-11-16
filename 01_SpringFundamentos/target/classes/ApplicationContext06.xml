@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+	Cuando estamos haciendo inyecciones de dependencias spring nos proporcina una manera
+	basante simple para hacerla mediante lo que se conoce como "autowired" o "autoenlazado"
+	o "autoinyectado".
+	
+	Mediante esta tecnica le diremos a Spring que busque depndencias dentro del contexto
+	para inyectarla en el objeto que lo necesite.
+	
+	Tenemos dos maneras principales de autoinyectar dependecias
+	1. byType, esta manera es una autoinyeccion por tipo de datos. Cuando establecemos
+	la propiedad autowired "byType", spring buscará algun objeto de ese tipo dentro del contexto
+	de spring, y si lo encuentra se lo inyectará. Si hubiera 2 objetos del mismo tipo, daria una
+	excepcion al arrancar el contexto de spring
+	
+	-->
+	
+	<bean id="d1" class="es.curso.spring06.Direccion">
+		<property name="tipoVia" value="Calle"></property>
+		<property name="nombreVia" value="Diamante"></property>
+		<property name="ciudad" value="Madrid"></property>
+		<property name="cp" value="25678"></property>
+	</bean>
+	
+	<!-- 
+	<bean id="d2" class="es.curso.spring06.Direccion">
+		<property name="tipoVia" value="Calle"></property>
+		<property name="nombreVia" value="Agata"></property>
+		<property name="ciudad" value="Madrid"></property>
+		<property name="cp" value="25679"></property>
+	</bean>
+	 -->
+	<bean id="p1" class="es.curso.spring06.Persona" autowire="byType">
+		<property name="nombre" value="Harry Potter"></property>
+	</bean>
+	
+	<!-- 
+	
+		El otro tipo de inyeccion es byName. Este tipo de inyeccion busca un bean dentro del
+		contexto de spring CUYO ID SEA IGUAL AL NOMBRE DE LA PROPIEDAD QUE ESTAMOS BUSCANDO.
+		
+		Es decir, que si la propiedad se llama "pedido" buscará un bean dentro del contexto
+		de spring cuyo ID sea "pedido"	
+	-->
+	
+	<bean id="pedido" class="es.curso.spring06.Pedido">
+		<property name="id" value="1"></property>
+		<property name="precio" value="24.56"></property>
+	</bean>
+	
+	<bean id="pedido2" class="es.curso.spring06.Pedido">
+		<property name="id" value="2"></property>
+		<property name="precio" value="56.79"></property>
+	</bean>
+	
+	<bean id="cliente" class="es.curso.spring06.Cliente" autowire="byName">
+		<property name="nombre" value="Steve McQueen"></property>
+	</bean>
+	
+	<bean id="cliente2" class="es.curso.spring06.Cliente">
+		<property name="nombre" value="Steve Martin"></property>
+		<property name="pedido" ref="pedido2"></property>
+	</bean>
+</beans>

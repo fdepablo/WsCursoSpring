@@ -23,4 +23,32 @@
 		<property name="ciudad" value="Madrid"></property>
 		<property name="cp" value="28097"></property>
 	</bean>	
+	
+	<!-- 
+		Podemos inyectar objetos mediante los "inner bean".
+		En este caso crearemos un objeto dentro de otro mediante
+		XML. De esta manera el objeto sería anonimo, es decir, no 
+		tendría id y no podemos acceder a este objeto directamente
+		por ID
+	 -->
+	 
+	 <bean id="filemon" class="es.curso.spring03.Persona">
+	 	<property name="nombre" value="Filemon"></property>
+	 	<property name="edad" value="82"></property>
+	 	<property name="peso" value="65.5"></property>
+	 	<property name="direccion">
+	 		<bean class="es.curso.spring03.Direccion">
+	 			<property name="tipoVia" value="Avenida"></property>
+				<property name="nombreVia" value="Reina Sofia"></property>
+				<property name="ciudad" value="Madrid"></property>
+				<property name="cp" value="28095"></property>
+	 		</bean>
+	 	</property>
+	 </bean>
+	 
+	 <bean id="persona" class="es.curso.spring03.Persona" scope="prototype">
+	 	<property name="direccion">
+	 		<bean class="es.curso.spring03.Direccion" scope="prototype"/>
+	 	</property>
+	 </bean>
 </beans>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- En este ejemplo vamos a ver como podemos trabajar con las colecciones en Spring
+		Existen tres tipos de colecciones en Java
+		1. Listas, coleccion de elementos ordenada
+		2. Conjuntos, coleccion de elementos sin orden y sin repeticion
+		3. Mapas, coleccion de elenentos clave-valor
+	-->	
+	
+	<bean id="listaNombres" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="java.lang.String">
+				<value>Asterix</value>
+				<value>Obelix</value>
+				<value>Panoramix</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="persona1" class="es.curso.spring05.Persona">
+		<property name="nombre" value="Bud Spencer"></property>
+	</bean>
+	<bean id="persona2" class="es.curso.spring05.Persona">
+		<property name="nombre" value="Terence Hill"></property>
+	</bean>
+	
+	<!-- Cuando tenemos una lista de objetos complejos (personas) podemos 
+		introducir los objetos en la lista mediante "rer" o mediante
+		inner bean
+	 -->
+	<bean id="listaPersonas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="es.curso.spring05.Persona">
+				<ref bean="persona1"/>
+				<ref bean="persona2"/>
+				<bean class="es.curso.spring05.Persona">
+					<property name="nombre" value="Harry Callahan"></property>
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Conjunto -->
+	<bean id="conjuntoPersonas" class="java.util.HashSet">
+		<constructor-arg>
+			<set value-type="es.curso.spring05.Persona">
+				<ref bean="persona1"/>
+				<ref bean="persona1"/>
+				<ref bean="persona2"/>
+				<bean class="es.curso.spring05.Persona">
+					<property name="nombre" value="Harry Callahan"></property>
+				</bean>
+			</set>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Mapas -->
+	<bean id="mapaPersonas" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.Integer" value-type="es.curso.spring05.Persona">
+				<entry key="1" value-ref="persona1"></entry>
+				<entry key="2" value-ref="persona2"></entry>
+				<entry key="3">
+					<bean class="es.curso.spring05.Persona">
+						<property name="nombre" value="Harry Callahan"></property>
+					</bean>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>
