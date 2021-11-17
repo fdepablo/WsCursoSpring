@@ -22,6 +22,9 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		String continuar = "s";
 		
+		GestorPelicula gp = 
+				context.getBean("gestorPelicula",GestorPelicula.class);
+		
 		do {
 			System.out.println("Rellene campos(titulo, genero, director:");
 			String titulo = sc.nextLine();
@@ -35,9 +38,7 @@ public class Main {
 			pelicula.getDirector().setNombre(nombreDirector);
 			pelicula.setTitulo(titulo);
 			pelicula.setGenero(genero);
-			
-			GestorPelicula gp = 
-					context.getBean("gestorPelicula",GestorPelicula.class);
+
 			//Insertamos
 			int respuesta = gp.insertar(pelicula);
 			if(respuesta == 0) {
