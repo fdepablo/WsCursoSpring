@@ -33,7 +33,7 @@ public class MainJdbcTemplate {
 		System.out.println("Pelicula con id 1: " + p2);
 		
 		System.out.println("Listado de peliculas");
-		System.out.println(gp.listar());
+		gp.listar().forEach( v -> System.out.println(v));
 		
 		gp.borrar(1);
 	}

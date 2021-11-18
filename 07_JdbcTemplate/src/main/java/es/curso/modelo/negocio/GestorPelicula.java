@@ -12,7 +12,7 @@ import es.curso.modelo.persistencia.DaoPelicula;
 public class GestorPelicula {
 	
 	@Autowired
-	DaoPelicula daoPelicula;
+	private DaoPelicula daoPelicula;
 	
 	/**
 	 * 

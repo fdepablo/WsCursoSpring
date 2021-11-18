@@ -26,9 +26,9 @@ public class Configuracion {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");//MySQL 8
-		dataSource.setUrl("jdbc:mysql://localhost:3306/jdbcTemplate?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/jdbc_template?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("mysql");
 		
 		//Configuracion para H2
 		/*

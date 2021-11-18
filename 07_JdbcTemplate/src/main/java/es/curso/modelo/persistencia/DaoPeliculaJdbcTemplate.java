@@ -20,6 +20,7 @@ public class DaoPeliculaJdbcTemplate implements DaoPelicula {
 
 	//JdbcTemplate trabaja con consultas parametrizadas por defecto, además de que es la manera
 	//recomendable
+	
 	/**
 	 * 
 	 * @param la pelicula que queremos dar de alta
